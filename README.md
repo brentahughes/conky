@@ -1,4 +1,4 @@
 # Conky Desktop Confis
 
 ## System Stats
-https://gitlab.com/bah2830/conky/raw/master/system_stats.png
+![system info](https://gitlab.com/bah2830/conky/raw/master/screenshots/system_stats.png)
