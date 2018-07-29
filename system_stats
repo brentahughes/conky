@@ -14,7 +14,7 @@ xftfont caviar dreams:size=10
 xftalpha 0.5
 uppercase no
 
-gap_x 10
+gap_x 1930
 gap_y 0
 minimum_size 300 900
 maximum_width 200
@@ -60,16 +60,19 @@ TEXT
 ${alignr}${font Roboto:size=44}${time %I:%M}
 ${voffset -50}${alignr}${font Roboto:size=10}${time %B %d %Y}
 
+
 # Sytem info
 ${voffset 10}${font Ubuntu:size=10}${color6}INFO
 ${color7}${hr}
 ${font Roboto:size=10}${color1}hostname${alignr}$nodename
 ${font Roboto:size=10}${color1}kernal${alignr}$kernel
+${font Roboto:size=10}${color1}cpu${alignr}${execi 100000 cat /proc/cpuinfo | grep "model name" | uniq | cut -d ":" -f 2  | cut -d " " -f 4,6,7}
+${font Roboto:size=10}${color1}mem${alignr}${execi 100000 head /proc/meminfo -n 1 | awk '{print int($2/1000/1000)" GB"}'}
 ${font Roboto:size=10}${color1}uptime${alignr}$uptime
 
 
 # Showing TOP 5 CPU-consumers
-${voffset 10}${font Ubuntu:size=10}${color6}CPU ${alignr}${font Roboto:size=10}${cpu 4}%
+${voffset 10}${font Ubuntu:size=10}${color6}CPU ${alignr}${font Roboto:size=10}${cpu}%
 ${color7}${cpubar 2 200}
 ${cpugraph 73,200 333333 333333}${voffset -93}
 ${font Roboto:size=10}${color4}${top name 1}${alignr}${top cpu 1}%
@@ -89,20 +92,17 @@ ${font Roboto:size=10}${color2}${top_mem name 3}${alignr}${top_mem mem 3}%
 ${font Roboto:size=10}${color3}${top_mem name 4}${alignr}${top_mem mem 4}%
 ${font Roboto:size=10}${color3}${top_mem name 4}${alignr}${top_mem mem 5}%
 
+
 # Showing disk partitions: root, home and Data
 ${voffset 10}${font Roboto:size=10}${color6}DISKS${alignr}${font Roboto:size=10}${fs_used_perc /}%
 ${color7}${fs_bar 2 200 /}
 ${font Roboto:size=10}${color1}/boot ${alignr}${fs_used /boot} / ${fs_size /boot}
 ${font Roboto:size=10}${color1}/ ${alignr}${fs_used /} / ${fs_size /}
-${font Roboto:size=10}${color1}/ ${alignr}${fs_used /} / ${fs_size /}
+
 
 # Network data (my desktop have only LAN). ETHERNET ring is mostly useless but looks pretty, main info is in the graphs
-
 ${voffset 10}${font Roboto:size=10}${color6}ETHERNET${alignr}${font Roboto:size=10}${addr enp3s0}
 ${color7}${hr}            
 ${color1}${font Roboto:size=10}Up: ${alignr}${upspeed enp3s0} / ${totalup enp3s0}
 ${color1}${font Roboto:size=10}Down: ${alignr}${downspeed enp3s0} / ${totaldown enp3s0}
-
-
-
 
