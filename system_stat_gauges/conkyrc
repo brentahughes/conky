@@ -31,23 +31,13 @@ border_inner_margin 0
 border_outer_margin 0
 alignment top_right
 
-draw_shades yes
+draw_shades no
 draw_outline no
 draw_borders no
 draw_graph_borders no
 
 # Defining colors
-default_color FFFFFF
-# Shades of Gray
-color1 DDDDDD
-color2 AAAAAA
-color3 888888
-color6 FFFFFF
-color7 777777
-# Orange
-color4 EF5A29
-# Green
-color5 77B753
+default_color 444444
 
 # Load lua
 lua_load ~/Dev/conky/system_stat_gauges/script.lua
@@ -56,27 +46,14 @@ lua_draw_hook_pre main
 ## System information using conky capabilities
 
 TEXT
-${font Roboto:size=10}${color7}${voffset 5}${alignr 10}CPU
-${font Roboto:size=10}${color7}${alignr 11}${cpu cpu}%
+${font Roboto:size=10}${voffset 5}${alignr 10}CPU
+${font Roboto:size=10}${alignr 11}${cpu cpu}%
 
-${font Roboto:size=10}${color7}${voffset -42}${goto 145}MEM
-${font Roboto:size=10}${color7}${voffset -1}${goto 140}${mem}
-${font Roboto:size=10}${color7}${voffset -45}${goto 55}${memperc}%
+${font Roboto:size=10}${voffset -42}${goto 145}MEM
+${font Roboto:size=10}${voffset -1}${goto 140}${mem}
+${font Roboto:size=10}${voffset -45}${goto 55}${memperc}%
 
+${font Roboto:size=10}${voffset 70}${alignr 15}DISK
+${font Roboto:size=10}${alignr 7}${fs_used /}
+${font Roboto:size=10}${voffset 45}${alignr 1}${fs_used_perc /}%
 
-${font Roboto:size=10}${color7}${voffset 55}${alignr 15}DISK
-${font Roboto:size=10}${color7}${alignr 7}${fs_used /}
-${font Roboto:size=10}${color7}${voffset 45}${alignr 1}${fs_used_perc /}%
-
-
-# ${color D60650}${goto 25}CPU
-# ${color FFFFFF}${goto 50}${voffset 23}${memperc}%
-# ${color D60650}${goto 50}RAM
-# ${color FFFFFF}${goto 75}${voffset 23}${swapperc}%
-# ${color D60650}${goto 75}Swap
-# ${color FFFFFF}${goto 100}${voffset 23}${fs_used_perc /}%
-# ${color D60650}${goto 100}Disk
-# ${color FFFFFF}${goto 125}${voffset 25}${downspeed eth0}
-# ${color FFFFFF}${goto 125}${upspeed eth0}
-# ${color D60650}${goto 125}Net
-#
