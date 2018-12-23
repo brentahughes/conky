@@ -1,0 +1,56 @@
+conky.config = {
+    background = false,
+    update_interval = 1,
+    cpu_avg_samples = 1,
+    net_avg_samples = 2,
+
+    temperature_unit = 'fahrenheit',
+    double_buffer = true,
+    no_buffers = true,
+    text_buffer_size = 2048,
+    override_utf8_locale = true,
+    use_xft = true,
+    font = 'Roboto:size=10',
+    uppercase = false,
+    own_window = true,
+    own_window_type = 'normal',
+    own_window_transparent = true,
+    own_window_argb_visual = true,
+    own_window_colour = '000000',
+    own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
+
+    gap_x = 20,
+    gap_y = 0,
+    minimum_height = 300,
+	minimum_width = 300,
+
+    border_inner_margin = 0,
+    border_outer_margin = 0,
+    alignment = 'top_left',
+
+    draw_shades = true,
+    draw_outline = false,
+    draw_borders = false,
+    draw_graph_borders = false,
+
+
+    default_color = '777777',
+    color1 = '774400'
+};
+
+conky.text = [[
+${font Roboto:Light:size=54}${time %_I}${color1}${voffset -4}:${voffset 4}${color}${time %M}${font Roboto:size=12}${time %p}
+${font Roboto:size=10}${voffset -20}${alignr}${time %b} ${color1}${font :BOLD:}${time %_d}${font}${color} ${time %Y}
+${hr}
+
+${offset 60}${voffset -20}${font Roboto:Bold:size=32}${execi 3600 ~/Dev/conky/weather/scripts/weather.sh temp}°
+${offset 40}${font Roboto:Light:size=10} ${offset 90}${voffset -68}${execi 3600 ~/Dev/conky/weather/scripts/weather.sh condition}
+${offset 130}${execi 3600 ~/Dev/conky/weather/scripts/weather.sh low}° / ${execi 3600 ~/Dev/conky/weather/scripts/weather.sh high}°
+
+
+${execi 3600 ~/Dev/conky/weather/scripts/weather.sh icon}
+${image ~/Dev/conky/weather/images/weather.gif -p 5,95 -s 40x40}
+${weather http://tgftp.nws.noaa.gov/data/observations/metar/stations/ KDFW cloud_cover}
+${weather http://tgftp.nws.noaa.gov/data/observations/metar/stations/ KDFW weather}
+
+]];

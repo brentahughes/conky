@@ -15,16 +15,17 @@ xftalpha 0.5
 uppercase no
 
 gap_x 1920
-gap_y 0
+gap_y 25
 minimum_size 300 300
 maximum_width 300
 
 own_window yes
-own_window_type normal
+own_window_class Conky
+own_window_type override
 own_window_transparent yes
 own_window_argb_visual yes
 own_window_colour 000000
-own_window_argb_value 1000
+own_window_argb_value 0
 own_window_hints undecorated,sticky,skip_taskbar,skip_pager,below
 
 border_inner_margin 0
