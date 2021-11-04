@@ -1,13 +1,16 @@
 require 'cairo'
 
+background=0xffffff
+forground=0xffffff
+
 settings_table = {
     {
         name='memperc',
         arg='',
         max=100,
-        bg_colour=0xffffff,
+        bg_colour=background,
         bg_alpha=0.1,
-        fg_colour=0xffffff,
+        fg_colour=forground,
         fg_alpha=0.5,
         x=170, y=0,
         radius=80,
@@ -19,9 +22,9 @@ settings_table = {
         name='fs_used_perc',
         arg='/',
         max=100,
-        bg_colour=0xffffff,
+        bg_colour=background,
         bg_alpha=0.1,
-        fg_colour=0xffffff,
+        fg_colour=forground,
         fg_alpha=0.5,
         x=300, y=100,
         radius=80,
@@ -34,9 +37,9 @@ settings_table = {
 cpu_ring={
     count=12,
     thickness=3,
-    bg_colour=0xffffff,
+    bg_colour=background,
     bg_alpha=0.1,
-    fg_colour=0xffffff,
+    fg_colour=forground,
     fg_alpha=0.6,
     x=300, y=0,
     radius=100,
